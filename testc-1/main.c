@@ -1,29 +1,18 @@
+#include "one/first.h"
 #include <stdio.h>
-#include <stdlib.h>
+#include <direct.h>
+void main2(char *);
+int main(void) {
 
-int main(int argc,char *argv[]) {
-    int ch;
-    FILE *fp;
-    long count = 0;
 
-    if(argc != 2){
-        printf("Usage: %s filename \n",argv[0]);
-        exit(1);
-    }
+//    main1("../testtxt");
 
-    if ((fp = fopen(argv[1],"r")) == NULL){
-        printf("Can't open %s\n",argv[1]);
-        exit(1);
-    }
-
-    while ((ch = getc(fp)) != EOF){
-        putc(ch,stdout);
-        count++;
-    }
-
-    fclose(fp);
-    printf("File %s has %ld characters\n",argv[1],count);
+    main2("../one/main2txt");
+    char buffer[1024];
+    _getcwd(buffer,1024);
+    printf("%s",buffer);
 
 
     return 0;
 }
+
