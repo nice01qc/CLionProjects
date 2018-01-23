@@ -1,0 +1,4 @@
+# 要忽略的文件夹
+.idea/
+cmake-build-debug/
+CMakeLists.txt
