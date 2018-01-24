@@ -1,16 +1,19 @@
 #include "one/first.h"
-#include <stdio.h>
-#include <direct.h>
-void main2(char *);
+
 int main(void) {
 
 
 //    main1("../testtxt");
 
-    main2("../one/main2txt");
-    char buffer[1024];
-    _getcwd(buffer,1024);
-    printf("%s",buffer);
+//    main2("../one/main2txt");
+
+    struct Book library;
+    library.value = 33.4;
+    strcpy(library.author,"nice");
+
+    char a[10]={'a','v','3'};
+    printf("%s",a);
+
 
 
     return 0;

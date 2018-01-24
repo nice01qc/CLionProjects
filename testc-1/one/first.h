@@ -65,7 +65,11 @@ void main2(char *str){
 
 }
 
-
+struct Book{
+    char title[100];
+    char author[100];
+    float value;
+};
 
 
 #endif //TESTC_1_FIRST_H_H
