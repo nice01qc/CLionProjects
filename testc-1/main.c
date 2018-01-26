@@ -1,23 +1,26 @@
 
 #include "one/first.h"
-
-int main(void) {
-
-
+#include <assert.h>
 struct student{
     int age;
     char name[30];
 };
-typedef struct{
-    int age;
-} Stu;
+
 int main(void) {
 
 //    main1("../testtxt");
 
 //    main2("../one/main2txt");
+    int x =100;
+    char a;
+    getchar();
 
-    allfault();
+    printf("%d\n",a);
+    assert(a < x);
+
+    printf("nice 23232333");
+
+
 
 
     return 0;
