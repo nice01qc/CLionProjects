@@ -1,5 +1,3 @@
-###### 注意：无符号类型会将负数的第一位变成1，所以会变成很大的数
-
 ### extern
 
 ​	通过变量的声明和定义解释其意义，int j =>声明并定义了j；extern int j =>仅仅声明；
@@ -36,9 +34,9 @@ decltype(*j) aa ;	//报错，不知道怎么初始化
 
 namespace std{ ~ }  => 申明并定义了一个命名 空间；
 
-using std; => 说明std域里面所有变量或者方法都不用加std；
+using namespace std; => 说明std域里面所有变量或者方法都不用加std；
 
-using std::cout; => 说明在std域里面，只有cout 不用加std；
+using namespace std::cout; => 说明在std域里面，只有cout 不用加std；
 
 注：头文件不要使用命名空间，一方紊乱；
 
@@ -46,5 +44,39 @@ using std::cout; => 说明在std域里面，只有cout 不用加std；
 
 string的长度 " ".size(); -> 返回的是一个无符号类型的值，通过string::size_type可以知道。
 
+字符串用+连接过程中必须有声明的string变量参与，否则报错。从左到右两两依次相加，都存在变量参与就不会报错，这样理解就好。
 
+### 标准类库vector:标准对象的集合
+
+vector<int> a; => 声明并定义的一个容器a,存在默认初始化;
+
+###### 有一下初始化方法：
+
+vector<T> v1 ;
+
+vector<T> v2(v1);
+
+vector<T> v3 = v1;	<=> 上一个
+
+vector<T> v4(n,val);  => 包含n个重复的 val，如果没有val，则n个初始化为T的值
+
+vector<T> v5{a,b,c,d......}
+
+vector<T> v6 = {a,b,c,d.....}
+
+
+
+
+
+
+
+
+
+
+
+
+
+###### 注1：无符号类型会将负数的第一位变成1，所以会变成很大的数
+
+###### 注2：在C语言中的库一般用name.h，现在在C++用cname替换，但内用一样的，但更符合C++规范
 

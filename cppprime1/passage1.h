@@ -6,7 +6,6 @@
 #define CPPPRIME1_PASSAGE1_H
 
 #include <iostream>
-#include <string>
 struct foo{
     int a;
     int b;
@@ -86,13 +85,28 @@ void test5(){
 }
 
 // #include<string>
+#include <cctype>       // cctype 都是对单个字符进行操作的
 void test6(){
-    std::string a(10,'a');
-
-    std::cout << a << std::endl;
+    bool f1 = isalnum('a');
+    bool f2 = iscntrl('b');
+    std::cout << f1 << std::endl;
+    std::cout << f2 << std::endl;
 
 }
 
+void test7(){
+    std::string str;
+    while(std::cin >> str){     // 不知道如何暂停
+        std::cout << str << std::endl;
+    }
+}
+
+#include <vector>
+using namespace std;
+void test8(){
+    vector<int> a{1,2,3,4,5,6};
+    cout<< a.size() << endl;
+}
 
 
 
