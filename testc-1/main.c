@@ -21,7 +21,5 @@ int main(void) {
     printf("nice 23232333");
 
 
-
-
     return 0;
 }
