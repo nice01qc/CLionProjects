@@ -6,6 +6,7 @@
 #define CPPPRIME1_PASSAGE1_H
 
 #include <iostream>
+#include <cstring>
 struct foo{
     int a;
     int b;
@@ -105,10 +106,49 @@ void test7(){
 using namespace std;
 void test8(){
     vector<int> a{1,2,3,4,5,6};
+    a.push_back(7);
+    a.push_back(8);
+    for (int temp : a){             // 如果要进行写操作必须声明为引用类型。
+        cout << temp << '\t';
+    }
+    cout << endl;
+    for (int i = 0; i < a.size(); ++i) {
+        a[i] += 1;
+        cout << a[i] << '\t';
+    }
+    cout << endl;
+
+    for (auto item = a.begin(); item != a.end() && !a.empty();item++){
+        *item += 1;
+        cout << *item << '\t';
+    }
+    cout << endl;
+
     cout<< a.size() << endl;
 }
 
 
+void test9(){
+    int a[] = {1,2,3};
+    int * p = &a[3];
+    auto f= begin(a);   // 获取begin开始指针
+    auto f2 = end(a);   // 获取end结束指针
+    cout << f2 - f;     // 可以这样获取数组长度
+}
+
+// 如何返回一个数组指针函数
+
+auto test10(int i) -> int(*)[3]{
+    static int a[] = {1,2,3};   // 返回指针必须已经存在，函数运行完就清除了，除了静态的
+
+    return &a;
+}
+
+int a[3] = {1,2,3};
+decltype(a) *test11(int i){
+
+    return &a;
+}
 
 
 

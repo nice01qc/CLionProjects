@@ -46,6 +46,8 @@ string的长度 " ".size(); -> 返回的是一个无符号类型的值，通过s
 
 字符串用+连接过程中必须有声明的string变量参与，否则报错。从左到右两两依次相加，都存在变量参与就不会报错，这样理解就好。
 
+字符数组 在存放字符串时注意大小，后需要加一个 '\0'  => char a[3] = "ab";  //刚好，多了就报错
+
 ### 标准类库vector:标准对象的集合
 
 vector<int> a; => 声明并定义的一个容器a,存在默认初始化;
@@ -63,6 +65,51 @@ vector<T> v4(n,val);  => 包含n个重复的 val，如果没有val，则n个初�
 vector<T> v5{a,b,c,d......}
 
 vector<T> v6 = {a,b,c,d.....}
+
+### case 标签必须是常量表达式
+
+
+
+### 范围for循环中，如果要进行写操作，循环变量必须声明成引用类型。
+
+```
+for ( declaration variable: expression)		// 说的是variable
+	statement
+```
+
+### 关于参数传递及函数返回值
+
+```
+int main(int argc,char* argv[]){} // 其中argc为参数个数，argv[0]为参数名字，argv[1]为第一个参数...
+```
+
+```
+int (*func(int i))[3]{	} //这个一直没实现，不知道什么情况。
+auto func(int i) -> int(*)[3] { }	// 这个可以实现
+decltype（数组) *func(int i) {		}  // 这个也实现了
+```
+
+### 函数默认实参、内联函数、constexpr函数
+
+```
+void func(int a = 1,int b = 2, int c){ }		// 默认实参
+inline int func(int a){		} 		// 内联函数，编译时将展开，执行更快，用于规模小，频繁调用的语句块
+constexpr int new_sz() { return 42;}	// 是指能用于常量表达式的函数，函数形参和返回值必须都是字面量类型，且必须有返回值
+constexpr int foo = new_sz();
+```
+
+### 调式相关知识
+
+```
+assert(expr); //expr为false，则报错停顿了，true则没事，继续；需引入#include <cassert>
+#define NDEBUG //使所有调试失效，必须放在最前面
+c++编译器定义了几个静态变量：
+	cout << __func__ << endl;	存放函数名字
+    cout << __FILE__ << endl;	存放文件路径
+    cout << __LINE__ << endl;	存储行号
+    cout << __TIME__ << endl;	存放时间
+    cout << __DATE__ << endl;	存放日期
+```
 
 
 
