@@ -103,7 +103,7 @@ constexpr int foo = new_sz();
 ```
 assert(expr); //expr为false，则报错停顿了，true则没事，继续；需引入#include <cassert>
 #define NDEBUG //使所有调试失效，必须放在最前面
-c++编译器定义了几个静态变量：
+c++编译器为每个函数定义了几个静态变量：
 	cout << __func__ << endl;	存放函数名字
     cout << __FILE__ << endl;	存放文件路径
     cout << __LINE__ << endl;	存储行号
@@ -111,9 +111,16 @@ c++编译器定义了几个静态变量：
     cout << __DATE__ << endl;	存放日期
 ```
 
+### 函数指针
 
-
-
+```
+bool (*pf)(const string&,const string&); // 未初始化的函数指针pf
+bool func(const string& a, const string& b){	}	// 一个函数
+pf = func;	//使pf指向func函数。
+pf = &func； //同上，可以省略&
+// 用decltype获取函数类型，返回的是函数类型，而不是函数指针；
+decltype(func) *ppf(const string&,const string&);	// 一个未初始化的函数指针ppf
+```
 
 
 

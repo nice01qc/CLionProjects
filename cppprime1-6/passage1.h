@@ -150,7 +150,19 @@ decltype(a) *test11(int i){
     return &a;
 }
 
+// 测试函数指针
+void funczz(string str){
+    cout << __func__ << endl;
+    cout << __FILE__ << endl;
+    cout << __LINE__ << endl;
+    cout << __TIME__ << endl;
+    cout << __DATE__ << endl;
+    cout << str << endl;
+}
+void testfunc(void (*pf)(string)){
 
+    pf("nice 01 1c !");
+}
 
 
 

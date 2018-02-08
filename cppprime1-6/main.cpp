@@ -16,13 +16,12 @@ int main() {
 //    test9();
 //    test10(3);
 
-    cout << __func__ << endl;
-    cout << __FILE__ << endl;
-    assert(3>5);
-    cout << __LINE__ << endl;
-    cout << __TIME__ << endl;
-    cout << __DATE__ << endl;
-
+//    cout << __func__ << endl;
+//    cout << __FILE__ << endl;
+//    cout << __LINE__ << endl;
+//    cout << __TIME__ << endl;
+//    cout << __DATE__ << endl;
+testfunc(&funczz);
     return 0;
 
 }
