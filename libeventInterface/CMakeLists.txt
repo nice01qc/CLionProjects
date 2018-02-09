@@ -3,6 +3,6 @@ project(libeventInterface)
 
 set(CMAKE_CXX_STANDARD 11)
 
-#add_executable(libeventInterface main.cpp)
+#add_executable(libeventInterface libevent_test.cpp *.h *.cpp)
 
 

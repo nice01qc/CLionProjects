@@ -1,101 +1,27 @@
 #include <iostream>
-class A;
-class B;
+#include "test.h"
 
 using namespace std;
-//class Girl;
-//class Boy {
-//
-//private:
-//    int age = 22;
-//    string name = "boy";
-//    Girl girl;
-//public:
-//
-//};
-//
-//class Girl{
-//private:
-//    Boy boy;
-//    int age1 = 23;
-//    string name1 = "girl";
-//
-//
-//public:
-//
-//};
 
 int main() {
     cout << "----------------main starts---------------" << endl;
-    class B pB;
-    class A pA(&pB);
 
-    pA.displayA();
-    pA.invokeClassBinClassA();
+    Entrust entrust;
 
+    entrust.sout();
 
+    Entrust entrust1(33);
+    entrust1.sout();
+
+    entrust.combine(entrust1);
+    entrust.sout();
+
+    entrust1.combine(100);
+    entrust1.sout();
 
 
 
     return 0;
 }
 
-class A{
-public:
-    A();
-    A(B *pB);
-    ~A();
 
-    void displayA();
-    void invokeClassBinClassA();
-
-private:
-    B* mB;
-};
-
-
-A::A() {}
-
-A::A(B *pb){
-    mB = pb;
-}
-
-A::~A() {}
-
-void A::displayA() {
-    cout << "this is A" << endl;
-}
-
-void A::invokeClassBinClassA() {
-    cout << "class A invoke class B starts >> " << endl;
-//    mB->displayB();
-    mB->displayB();
-}
-
-
-class B{
-public:
-    B();
-    ~B();
-
-    void displayB();
-    void invokeClassAinClassB();
-
-private:
-    A *mA;
-};
-
-B::B() {
-    mA = new A();
-}
-
-B::~B() {}
-
-void B::displayB() {
-    cout << "this is the B" << endl;
-}
-
-void B::invokeClassAinClassB() {
-    cout << "class B invoke class A starts >> " << endl;
-    mA->displayA();
-}
