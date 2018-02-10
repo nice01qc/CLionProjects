@@ -62,6 +62,12 @@ void sout(Boy boy){
 
 ```
 
+### 对于类中this的理解
+
+目前理解：this 存在于类的方法中，应该在调用方法的时候创建的，this本身是对象的常量指针，根据函数是什么类型来确定指针指向是常量还是非常量，因此你会看到常量函数返回const classA \*const this这样的指针，或者非常量函数的 classA\* const this这样的指针。
+
+
+
 ### 类的拷贝、赋值和析构
 
 *objectA = objectB;	// 只是简单的把objectB赋值给objectA;*
@@ -82,12 +88,58 @@ A a; // 这也使用了类的定义，初始化；因此用A* a;类指针可以�
 classA(int a1,int b1):a(a1),b(b1){	}	// 对成员进行初始化，也就可以初始化常量
 classA(int a1,int b1){a = a1; b = b1;} 	// 对成员进行赋值操作，不能初始化常量
 类成员初始化顺序按定义顺序来。
-void classA::combine(classA a){	}	// 隐式的类类型转换，
+void classA::combine(classA a){	}	// 隐式的类类型转换，通过构造函数匹配初始化，创建了一个临时对象。 但通过在构造函数前加 explicit 关键字，便可以抑制构造函数定义的隐式转换。
 ```
 
+### 聚合类
+
+满足一下要求的类都是聚合类：
 
 
 
+- 所有成员都是public的。
+- 没有定义任何构造函数。
+- 没有类内初始值。
+- 没有基类，也没有virtual函数。
+
+ps:
+
+```
+struct Data{
+  int age;
+  string name;
+};
+Data data1 = {22,"nier"};	// 可以这样初始化
+```
+
+### 字面常量类p267
+
+### 类中的静态成员
+
+注意：定义静态变量的时候注意静态变量必须初始化。
+
+```
+class A{
+  static int a;
+};
+int A::a = 33;	//方法一：在外初始化
+```
+
+```
+class A{
+  static constexpr int tmp = 11;	// 这样初始化，只能用于在编译时初始化其他变量
+  double array[tmp];	// 初始化array时用到的
+}
+```
+
+```
+class A{
+	public:
+		void seta(char c = bkground);	// 区别
+	private:
+		static const char bkground;		// 静态成员可以作为默认实参
+}
+```
 
 
 
