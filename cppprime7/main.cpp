@@ -2,20 +2,17 @@
 #include "test.h"
 
 using namespace std;
+int a[3] = {32,3,2};
+int* func(int i){
 
+    return a;
+}
 int main() {
     cout << "----------------main starts---------------" << endl;
 
-    Entrust entrust;
-    entrust.coutstatic();
-    Entrust::coutstatic();
-    cout << entrust.sta << endl;
-    cout << Entrust::sta << endl;
+    int *pd =  func(3);
 
-    cout << *Entrust::getstatic() <<endl;
-
-    Entrust::sta = 5454;
-    cout << Entrust::sta << endl;
+    cout << pd[3] << endl;
 
     return 0;
 }
