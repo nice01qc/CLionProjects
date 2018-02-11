@@ -2,17 +2,15 @@
 #include "test.h"
 
 using namespace std;
-int a[3] = {32,3,2};
-int* func(int i){
 
-    return a;
-}
 int main() {
     cout << "----------------main starts---------------" << endl;
+    int a;
+    auto old_state = cin.rdstate();
+    cout << old_state << endl;
 
-    int *pd =  func(3);
+    cout << cin.good() << endl;
 
-    cout << pd[3] << endl;
 
     return 0;
 }
