@@ -58,3 +58,23 @@ ofstream out1(filename,ofstream::out | ofstream::trunc);	//添加多个方式用
 ......
 ```
 
+###### string流：就像Java里面字符串缓冲一样#include  \<sstream\>
+
+```
+sstream strm; // 定义一个未绑定的stringstream对象
+sstream strm(s);	// .....,并保存一个string s的拷贝
+strm.str();	// 返回strm所保存的string拷贝
+strm.str(s);	// 将string s 拷贝到strm中
+```
+
+```
+string line = "name 123";
+istringstream stringin(line);	// 输入
+string name;
+int num;
+istringstream >> name >> num;
+ostringstream stringout; 	//输出
+stringout << name << "  " << age << flush;
+cout << stringout.str() << endl;	//一块输出
+```
+
