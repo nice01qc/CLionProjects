@@ -1,5 +1,8 @@
 #include <iostream>
 #include <vector>
+#include <deque>
+#include <bits/forward_list.h>
+#include <list>
 
 using namespace std;
 
@@ -7,14 +10,18 @@ void coutvector(vector<int> x);
 
 int main() {
 
-    vector<int> a = {1, 2, 3, 4};
-    vector<int> b = {5, 6, 7, 8, 9, 10, 11, 12, 13};
-
-    a.swap(b);
-
+    vector<int> a = {1, 2, 3, 4,5,6,7,8,9};
+    auto iter = a.begin();
+    while (iter != a.end()){
+        if (*iter % 2){
+//            iter = a.insert(iter,*iter);
+            iter += 1;
+        }else{
+            iter = a.erase(iter);
+        }
+    }
 
     coutvector(a);
-    coutvector(b);
 
     return 0;
 }
