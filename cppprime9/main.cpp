@@ -3,6 +3,8 @@
 #include <deque>
 #include <bits/forward_list.h>
 #include <list>
+#include <stack>
+#include <queue>
 
 using namespace std;
 
@@ -10,18 +12,16 @@ void coutvector(vector<int> x);
 
 int main() {
 
-    vector<int> a = {1, 2, 3, 4,5,6,7,8,9};
-    auto iter = a.begin();
-    while (iter != a.end()){
-        if (*iter % 2){
-//            iter = a.insert(iter,*iter);
-            iter += 1;
-        }else{
-            iter = a.erase(iter);
-        }
-    }
+    priority_queue<int> intStack;
+    intStack.push(2);
+    intStack.push(21);
+    intStack.push(22);
+    intStack.push(5);
 
-    coutvector(a);
+
+    cout << intStack.top()<< endl;
+    cout << intStack.empty() << endl;
+
 
     return 0;
 }
