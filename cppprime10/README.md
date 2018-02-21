@@ -79,17 +79,17 @@ for (auto e : vec){
 }
 ```
 
+###### list和forward_list一些特有的操作
 
-
-
-
-
-
-
-
-
-
-
+```
+lst.merge(lst2); //lst合并lst2
+lst.merge(...)
+lst.remove(val);	// 删除值为val的元素
+lst.reverse();	//反转lst中元素顺序
+lst.sort()
+lst.unique()
+lst.slice(args)
+```
 
 ### 函数指针
 
