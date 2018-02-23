@@ -122,9 +122,13 @@ pf = &func； //同上，可以省略&
 decltype(func) *ppf(const string&,const string&);	// 一个未初始化的函数指针ppf
 ```
 
+##### 直接初始化与拷贝初始化
 
-
-
+```
+string s1("nice");	//直接初始化
+string s2 = "nice";	// 拷贝初始化
+string s3 = {"nice"}	// 这是什么初始化，还没彻底搞清楚
+```
 
 
 
