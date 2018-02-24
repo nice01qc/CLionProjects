@@ -32,7 +32,7 @@
 
   ​
 
-- [13章——拷贝控制]() [pdf]()
+- [13章——拷贝控制](C:\Users\nice01qc\CLionProjects\cppprime13\README.md) [pdf](C:\Users\nice01qc\CLionProjects\cppprime13\13.pdf)
 
 - [14章——重载运算与类型转换]() [pdf]()
 

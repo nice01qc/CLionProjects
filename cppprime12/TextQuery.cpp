@@ -27,7 +27,7 @@ TextQuery::TextQuery(std::ifstream & in): file(new std::vector<std::string>){
 }
 
 QueryResult TextQuery::query(const std::string & str) const {
-    static std::shared_ptr<std::set<line_no >> nodata(new std::set<line_no >);
+    std::shared_ptr<std::set<line_no >> nodata(new std::set<line_no >);
 
     auto loc = wm.find(str);
 

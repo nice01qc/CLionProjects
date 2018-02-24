@@ -33,7 +33,7 @@ int main() {
     ifstream infile("../infile.txt");
 
     TextQuery textQuery(infile);
-    print(cout, textQuery.query("a"));
+    print(cout, textQuery.query("aqwe"));
 
 
 
