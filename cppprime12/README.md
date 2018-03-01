@@ -1,5 +1,3 @@
-
-
 ### 12、动态内存与智能指针  #include \<memory\>
 
 ###### 智能指针 shared_ptr类 => 模板

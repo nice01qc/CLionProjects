@@ -1,14 +1,16 @@
-### extern
+### 1-6章
+
+#### extern
 
 ​	通过变量的声明和定义解释其意义，int j =>声明并定义了j；extern int j =>仅仅声明；
 
-### 指针与引用
+#### 指针与引用
 
 - 引用便是变量的别名：int a = 100; int &b = a; =>b是a的别名。
 - 指针便是指向变量地址的变量。int a = 100; int *b = &a; b为指向a的指针。
 
 
-### const/constexpr
+#### const/constexpr
 
 默认情况下，const修饰的仅在当前文件内有效。
 
@@ -22,7 +24,7 @@ int *const  aa = &bb; -> 这是常量指针 -> 也就是 顶层const。
 
 注：普通的常量都是顶层const；只有指针既有顶层const，也有底层const。
 
-### decltype
+#### decltype
 
 int i=1,*j=&i;
 
@@ -30,7 +32,7 @@ decltype((*j)) a = i;	// 加双层括号都算表达式，永远为引用类型
 
 decltype(*j) aa ;	//报错，不知道怎么初始化
 
-### 命名空间using & namespace ->然后知道了域以及 ::
+#### 命名空间using & namespace ->然后知道了域以及 ::
 
 namespace std{ ~ }  => 申明并定义了一个命名 空间；
 
@@ -40,7 +42,7 @@ using namespace std::cout; => 说明在std域里面，只有cout 不用加std；
 
 注：头文件不要使用命名空间，一方紊乱；
 
-### string
+#### string
 
 string的长度 " ".size(); -> 返回的是一个无符号类型的值，通过string::size_type可以知道。
 
@@ -48,7 +50,7 @@ string的长度 " ".size(); -> 返回的是一个无符号类型的值，通过s
 
 字符数组 在存放字符串时注意大小，后需要加一个 '\0'  => char a[3] = "ab";  //刚好，多了就报错
 
-### 标准类库vector:标准对象的集合
+#### 标准类库vector:标准对象的集合
 
 vector<int> a; => 声明并定义的一个容器a,存在默认初始化;
 
@@ -66,18 +68,18 @@ vector<T> v5{a,b,c,d......}
 
 vector<T> v6 = {a,b,c,d.....}
 
-### case 标签必须是常量表达式
+#### case 标签必须是常量表达式
 
 
 
-### 范围for循环中，如果要进行写操作，循环变量必须声明成引用类型。
+#### 范围for循环中，如果要进行写操作，循环变量必须声明成引用类型。
 
 ```
 for ( declaration variable: expression)		// 说的是variable
 	statement
 ```
 
-### 关于参数传递及函数返回值
+#### 关于参数传递及函数返回值
 
 ```
 int main(int argc,char* argv[]){} // 其中argc为参数个数，argv[0]为参数名字，argv[1]为第一个参数...
@@ -89,7 +91,24 @@ auto func(int i) -> int(*)[3] { }	// 这个可以实现
 decltype（数组) *func(int i) {		}  // 这个也实现了
 ```
 
-### 函数默认实参、内联函数、constexpr函数
+#### 含有可变形参的函数
+
+C++11 标准提供了两种主要的方法：
+
+1. 如果实参类型相同，可以传递一个名为initializer_list 标准类库
+
+2. 如果实参不同，也就所谓的可变参数模板
+
+   ```
+   initializer_list<T> lst;	// 默认初始化，T类型的空列表
+   initializer_list<T> lst{a,b,c...};	// 初始化，值为a，b，c...副本
+   lst2(lst); lst2 = lst;	// 拷贝或赋值一个initializer_list对象，共享列表中元素
+   lst.size()
+   lst.begin()
+   lst.end()
+   ```
+
+#### 函数默认实参、内联函数、constexpr函数
 
 ```
 void func(int a = 1,int b = 2, int c){ }		// 默认实参
@@ -98,7 +117,7 @@ constexpr int new_sz() { return 42;}	// 是指能用于常量表达式的函数�
 constexpr int foo = new_sz();
 ```
 
-### 调式相关知识
+#### 调式相关知识
 
 ```
 assert(expr); //expr为false，则报错停顿了，true则没事，继续；需引入#include <cassert>
@@ -111,7 +130,7 @@ c++编译器为每个函数定义了几个静态变量：
     cout << __DATE__ << endl;	存放日期
 ```
 
-### 函数指针
+#### 函数指针
 
 ```
 bool (*pf)(const string&,const string&); // 未初始化的函数指针pf
@@ -122,7 +141,7 @@ pf = &func； //同上，可以省略&
 decltype(func) *ppf(const string&,const string&);	// 一个未初始化的函数指针ppf
 ```
 
-##### 直接初始化与拷贝初始化
+#### 直接初始化与拷贝初始化
 
 ```
 string s1("nice");	//直接初始化
