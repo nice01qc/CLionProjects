@@ -1,27 +1,27 @@
 #include<iostream>
 #include<stack>
 using namespace std;
-                void sortStackByStack(stack<int>& s)
+void sortStackByStack(stack<int>& s)
 {
-stack<int> help;
-while (!s.empty())
-{
-int cur = s.top();
-s.pop();
-while (!help.empty()&&cur>help.top())
-{
-int tmp = help.top();
-s.push(tmp);
-help.pop();
-}
-help.push(cur);
-}
-while (!help.empty())
-{
-int tmp = help.top();
-s.push(tmp);
-help.pop();
-}
+    stack<int> help;
+    while (!s.empty())
+    {
+        int cur = s.top();
+        s.pop();
+        while (!help.empty()&&cur>help.top())
+        {
+            int tmp = help.top();
+            s.push(tmp);
+            help.pop();
+        }
+        help.push(cur);
+    }
+    while (!help.empty())
+    {
+        int tmp = help.top();
+        s.push(tmp);
+        help.pop();
+    }
 }
 void show(stack<int> s)
 {
